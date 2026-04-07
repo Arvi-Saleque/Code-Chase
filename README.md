@@ -82,7 +82,7 @@ Code Chase is built around four main workflows:
 ```text
 lib/
   main.dart                    App entry point and route registration
-  firebase_options.dart        FlutterFire-generated configuration
+  firebase_options.dart        Local FlutterFire-generated configuration
   pages/                       Feature screens
   components/                  Reusable UI and analytics helpers
   services/                    API service classes
@@ -150,17 +150,16 @@ flutter pub get
 
 ### Configure Firebase
 
-This project already includes:
+Firebase client configuration files are intentionally not committed to the repository.
 
-- `lib/firebase_options.dart`
-- `android/app/google-services.json`
-
-If you want to connect the app to your own Firebase project, regenerate the configuration:
+Generate your local configuration with FlutterFire:
 
 ```bash
 dart pub global activate flutterfire_cli
 flutterfire configure
 ```
+
+For Android, also place your project-specific `google-services.json` in `android/app/`.
 
 You should also enable these Firebase products:
 
@@ -187,7 +186,7 @@ flutter run -d windows
 - Practice history is stored in the `problems` collection.
 - Analytics are derived from `updatedAt`, `status`, and `actualTime`.
 - Upcoming contests and contest performance are currently based on Codeforces APIs.
-- Firebase options are configured for Android, iOS, macOS, Windows, and Web.
+- Firebase options are expected to be generated locally for Android, iOS, macOS, Windows, and Web.
 - Linux Firebase configuration is not currently implemented in `lib/firebase_options.dart`.
 
 ## Current Status
